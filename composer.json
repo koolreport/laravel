@@ -1,0 +1,11 @@
+{
+    "name": "koolreport/laravel",
+    "version":"1.5.0",
+    "description": "Allow to use KoolReport seamlessly in Laravel",
+    "keywords": ["PHP","Reporting Tools","Data Report","laravel","KooLReport Laravel","Laravel Report","laravel reporting","laravel reporting tool"],
+    "homepage": "https://www.koolreport.com",
+    "type": "library",
+    "license": "https://www.koolreport.com/license#regular-license",
+    "require": {
+    }
+}
