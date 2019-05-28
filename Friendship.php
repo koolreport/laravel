@@ -20,7 +20,7 @@ trait Friendship
                 mkdir($public_path."/koolreport_assets",0755);
             }
             $assets = array(
-                "url"=>"koolreport_assets",
+                "url"=>url("")."/koolreport_assets",
                 "path"=>$public_path."/koolreport_assets",
             );
             $this->reportSettings["assets"] = $assets;

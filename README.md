@@ -31,7 +31,7 @@ While Laravel is PHP Framework for general purpose, KoolReport only __focus on r
 
 1. First, you create folder `Reports` inside Laravel's `app` folder
 2. Inside Reports folder, create two files `MyReport.php` and `MyReport.view.php`
-3. Adding `use \koolreport\laravel\Friendship` to your report like follwing
+3. Adding `use \koolreport\laravel\Friendship` to your report like following
 
 `MyReport.php`
 
@@ -97,7 +97,7 @@ use App\Reports\MyReport;
 
 class HomeController extends Controller
 {
-    public function __contruct()
+public function __contruct()
     {
         $this->middleware("guest");
     }
