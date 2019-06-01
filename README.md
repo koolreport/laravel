@@ -19,9 +19,23 @@ While Laravel is PHP Framework for general purpose, KoolReport only __focus on r
 
 # Installation
 
-1. Download and unzip it
-2. Copy `laravel` folder into `koolreport\packages` folder
-3. All done, you are ready to create report in laravel php framework.
+## By downloading .zip file
+
+1. [Download](https://www.koolreport.com/packages/laravel)
+2. Unzip the zip file
+3. Copy the folder `laravel` into `koolreport` folder so that look like below
+
+```bash
+koolreport
+├── core
+├── laravel
+```
+
+## By composer
+
+```
+composer require koolreport\laravel
+```
 
 # Documentation
 
