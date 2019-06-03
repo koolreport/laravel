@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.6.0
+
+1. Change README
+
 ## Version 1.5.0
 
 1. Enhance assets url settings
