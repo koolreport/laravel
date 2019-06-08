@@ -34,7 +34,7 @@ koolreport
 ## By composer
 
 ```
-composer require koolreport\laravel
+composer require koolreport/laravel
 ```
 
 # Documentation
