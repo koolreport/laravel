@@ -9,8 +9,14 @@ trait Friendship
 {
     public function __constructFriendship()
     {
-        $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-            || $_SERVER['SERVER_PORT'] == 443;
+
+        $base_url = url("");
+        $base_url = str_replace("://", "--", $base_url);
+        if (strpos($base_url, "/") !== false) {
+            $base_url = substr($base_url, strpos($base_url, "/"));
+        } else {
+            $base_url = "";
+        }
 
         //assets folder
         $assets = Utility::get($this->reportSettings, "assets");
@@ -20,7 +26,7 @@ trait Friendship
                 mkdir($public_path . "/koolreport_assets", 0755);
             }
             $assets = array(
-                "url" => ($isSecure ? secure_url() : url("")) . "/koolreport_assets",
+                "url" => $base_url . "/koolreport_assets",
                 "path" => $public_path . "/koolreport_assets",
             );
             $this->reportSettings["assets"] = $assets;
