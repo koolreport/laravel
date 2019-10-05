@@ -1,6 +1,6 @@
 # Change Log
 
-## Version 1.7.0 (new)
+## Version 1.7.0
 
 1. Detect secure connection to return correct url for assets.
 
