@@ -1,5 +1,9 @@
 # Change Log
 
+## New version
+
+1. Adding `Eloquent` data source class to handle eloquent query
+
 ## Version 1.7.0
 
 1. Detect secure connection to return correct url for assets.
