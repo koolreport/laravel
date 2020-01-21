@@ -1,8 +1,9 @@
 # Change Log
 
-## New version
+## Version 2.0.0
 
 1. Adding `Eloquent` data source class to handle eloquent query
+
 
 ## Version 1.7.0
 
