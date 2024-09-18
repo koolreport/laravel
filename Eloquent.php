@@ -6,28 +6,23 @@ use \koolreport\core\Utility;
 
 class Eloquent extends \koolreport\core\DataSource
 {
-    protected $builder;
     /**
      * Insert eloquent buikder to the pipe.
      * 
      * @param mixed $builder 
      */
-    public function query($builder)
+    protected $builder;
+    protected $retrievingMethod;
+    
+    public function query($builder, $retrievingMethod = null)
     {
         $this->builder = $builder;
+        $this->retrievingMethod = $retrievingMethod;
         return $this;
     }
 
-    /**
-     * Start piping data
-     *
-     * @return null
-     */
-    public function start() 
+    public function sendMetaAndItem($metaData, $item) 
     {
-        $metaData = null;
-        foreach($this->builder->cursor() as $item)
-        {
             if(!$metaData)
             {
                 $metaData = array(
@@ -43,6 +38,26 @@ class Eloquent extends \koolreport\core\DataSource
                 $this->startInput(null);
             }
             $this->next($item->toArray(), $this);
+    }
+
+    /**
+     * Start piping data
+     *
+     * @return null
+     */
+    public function start() 
+    {
+        $metaData = null;
+        if ($this->retrievingMethod == 'lazy') {
+            foreach($this->builder::lazy() as $item)
+            {
+                $this->sendMetaAndItem($metaData, $item);
+            }
+        } else {
+            foreach($this->builder->cursor() as $item)
+            {
+                $this->sendMetaAndItem($metaData, $item);
+            }
         }
         $this->endInput(null);
     }

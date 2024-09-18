@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.1.0
+
+1. Add retrieving method for `Eloquent` in query method, support `lazy` call.
+
 ## Version 2.0.0
 
 1. Adding `Eloquent` data source class to handle eloquent query

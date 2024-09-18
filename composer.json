@@ -1,6 +1,6 @@
 {
     "name": "koolreport/laravel",
-    "version":"2.0.0",
+    "version":"2.1.0",
     "description": "Allow to use KoolReport seamlessly in Laravel",
     "keywords": ["PHP","Reporting Tools","Data Report","laravel","KooLReport Laravel","Laravel Report","laravel reporting","laravel reporting tool"],
     "homepage": "https://www.koolreport.com",
