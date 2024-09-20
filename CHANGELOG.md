@@ -2,7 +2,7 @@
 
 ## Version 2.1.0
 
-1. Add retrieving method for `Eloquent` in query method, support `lazy` call.
+1. Add retrieving option for `Eloquent` in query method, support `lazy` call.
 
 ## Version 2.0.0
 

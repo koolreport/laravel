@@ -12,7 +12,7 @@ class Eloquent extends \koolreport\core\DataSource
      * @param mixed $builder 
      */
     protected $builder;
-    protected $retrievingMethod;
+    protected $retrievingMethod = null;
     
     public function query($builder, $retrievingMethod = null)
     {
@@ -23,21 +23,21 @@ class Eloquent extends \koolreport\core\DataSource
 
     public function sendMetaAndItem($metaData, $item) 
     {
-            if(!$metaData)
+        if(!$metaData)
+        {
+            $metaData = array(
+                "columns"=>array()
+            );
+            foreach($item->toArray() as $k=>$v)
             {
-                $metaData = array(
-                    "columns"=>array()
+                $metaData["columns"][$k] = array(
+                    "type"=>Utility::guessType($v)
                 );
-                foreach($item->toArray() as $k=>$v)
-                {
-                    $metaData["columns"][$k] = array(
-                        "type"=>Utility::guessType($v)
-                    );
-                }
-                $this->sendMeta($metaData, $this);
-                $this->startInput(null);
             }
-            $this->next($item->toArray(), $this);
+            $this->sendMeta($metaData, $this);
+            $this->startInput(null);
+        }
+        $this->next($item->toArray(), $this);
     }
 
     /**
@@ -53,7 +53,7 @@ class Eloquent extends \koolreport\core\DataSource
             {
                 $this->sendMetaAndItem($metaData, $item);
             }
-        } else {
+        } else if ($this->retrievingMethod == 'cursor' || $this->retrievingMethod == null) {
             foreach($this->builder->cursor() as $item)
             {
                 $this->sendMetaAndItem($metaData, $item);
